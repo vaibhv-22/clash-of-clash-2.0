@@ -78,7 +78,7 @@ while True:
             i.attack(king,king_pos, all_troops)
         for i in wizard_towers:
             i.attack(king,king_pos, all_troops)
-    # os.system("clear")
+    os.system("clear")
 
     # Entry for the Foreign Troops -> Barbarian
     board[4][0] = 'i'

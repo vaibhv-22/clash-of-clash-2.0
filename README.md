@@ -14,8 +14,8 @@
     press b/n/m for spawing the Balloons.
 
     press Spacebar for Avatar to attack
-    press 'l' for King's Super Power (Area Splash)
-    press 'l' for The Archer Queen's Eagle Arrow (Area Splash)
+    press ';' for King's Super Power (Area Splash)
+    press ';' for The Archer Queen's Eagle Arrow (Area Splash)
  
     press q to quit
 

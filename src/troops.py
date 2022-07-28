@@ -69,41 +69,41 @@ class Barb(Troops):
                         for wl in all_walls:
                             sum += wl.health
                         # NORMAL CASE
-                        if sum == 32:
-                            for wl in all_walls:
-                                if wl.pos_x == self.pos[0] and wl.pos_y == self.pos[1]:
-                                    wl.health = 0
-                                    wl.build()
-                        else:
-                            self.pos = store_pos[:]
-                            dis = Inf
-                            ind = -1
-                            for wl in all_walls:
-                                if wl.health == 0:
-                                    if dis > abs(wl.pos_x - self.pos[0]) + abs(wl.pos_y - self.pos[1]):
-                                        dis = abs(wl.pos_x - self.pos[0]) + abs(wl.pos_y - self.pos[1])
-                                        ind = wl
+                        # if sum == 32:
+                        for wl in all_walls:
+                            if wl.pos_x == self.pos[0] and wl.pos_y == self.pos[1]:
+                                wl.health = 0
+                                wl.build()
+                        # else:
+                        #     self.pos = store_pos[:]
+                        #     dis = Inf
+                        #     ind = -1
+                        #     for wl in all_walls:
+                        #         if wl.health == 0:
+                        #             if dis > abs(wl.pos_x - self.pos[0]) + abs(wl.pos_y - self.pos[1]):
+                        #                 dis = abs(wl.pos_x - self.pos[0]) + abs(wl.pos_y - self.pos[1])
+                        #                 ind = wl
                             # MOVEMENT AVOIDING WALLS
                             # self.pos
                             # ind -> all_walls[ind] -> destination
                             # self.pos -> current position
-                            if self.pos[0] < ind.pos_x and board[self.pos[0]+1][self.pos[1]] == ' ':
-                                self.pos[0] += 1
-                            elif self.pos[0] > ind.pos_x and board[self.pos[0]-1][self.pos[1]] == ' ':
-                                self.pos[0] -= 1
-                            elif self.pos[1] < ind.pos_y and board[self.pos[0]][self.pos[1]+1] == ' ':
-                                self.pos[1] += 1
-                            elif self.pos[1] > ind.pos_y and board[self.pos[0]][self.pos[1]-1] == ' ':
-                                self.pos[1] -= 1 
-                            if self.pos[0] == store_pos[0] and self.pos[1] == store_pos[1]:
-                                if board[self.pos[0]][self.pos[1]+1] == 'W' and board[self.pos[0]+1][self.pos[1]+1] == 'W' and board[self.pos[0]+1][self.pos[1]+2] == 'W':
-                                    self.pos[0] += 1
-                                if board[self.pos[0]][self.pos[1]-1] == 'W' and board[self.pos[0]-1][self.pos[1]-1] == 'W' and board[self.pos[0]-1][self.pos[1]-2] == 'W':
-                                    self.pos[0] -= 1
-                                if board[self.pos[0]+1][self.pos[1]] == 'W' and board[self.pos[0]+1][self.pos[1]+1] == 'W' and board[self.pos[0]+2][self.pos[1]+1] == 'W':
-                                    self.pos[1] -= 1
-                                if board[self.pos[0]-1][self.pos[1]] == 'W' and board[self.pos[0]-1][self.pos[1]-1] == 'W' and board[self.pos[0]-2][self.pos[1]-1] == 'W':
-                                    self.pos[1] += 1
+                            # if self.pos[0] < ind.pos_x and board[self.pos[0]+1][self.pos[1]] == ' ':
+                            #     self.pos[0] += 1
+                            # elif self.pos[0] > ind.pos_x and board[self.pos[0]-1][self.pos[1]] == ' ':
+                            #     self.pos[0] -= 1
+                            # elif self.pos[1] < ind.pos_y and board[self.pos[0]][self.pos[1]+1] == ' ':
+                            #     self.pos[1] += 1
+                            # elif self.pos[1] > ind.pos_y and board[self.pos[0]][self.pos[1]-1] == ' ':
+                            #     self.pos[1] -= 1 
+                            # if self.pos[0] == store_pos[0] and self.pos[1] == store_pos[1]:
+                            #     if board[self.pos[0]][self.pos[1]+1] == 'W' and board[self.pos[0]+1][self.pos[1]+1] == 'W' and board[self.pos[0]+1][self.pos[1]+2] == 'W':
+                            #         self.pos[0] += 1
+                            #     if board[self.pos[0]][self.pos[1]-1] == 'W' and board[self.pos[0]-1][self.pos[1]-1] == 'W' and board[self.pos[0]-1][self.pos[1]-2] == 'W':
+                            #         self.pos[0] -= 1
+                            #     if board[self.pos[0]+1][self.pos[1]] == 'W' and board[self.pos[0]+1][self.pos[1]+1] == 'W' and board[self.pos[0]+2][self.pos[1]+1] == 'W':
+                            #         self.pos[1] -= 1
+                            #     if board[self.pos[0]-1][self.pos[1]] == 'W' and board[self.pos[0]-1][self.pos[1]-1] == 'W' and board[self.pos[0]-2][self.pos[1]-1] == 'W':
+                            #         self.pos[1] += 1
                         
                     board[self.pos[0]][self.pos[1]] = '*'
 
